@@ -27,14 +27,23 @@
     <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">nama buku</label>
     <input type="text" name="nama_buku" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$buku->nama_buku}}">
+    @error('nama_buku')
+    <div class="invalid-feedback">{{$message}}</div>
+    @enderror
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">penerbit</label>
     <input type="text" name="penerbit" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$buku->penerbit}}">
+    @error('penerbit')
+    <div class="invalid-feedback">{{$message}}</div>
+    @enderror
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">tanggal terbit</label>
     <input type="date" name="tanggal_terbit" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$buku->tanggal_terbit}}">
+    @error('tanggal_terbit')
+    <div class="invalid-feedback">{{$message}}</div>
+    @enderror
   </div>
   
    

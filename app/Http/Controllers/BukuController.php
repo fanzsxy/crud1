@@ -19,9 +19,15 @@ class BukuController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate([
+            'nama_buku' => 'required|min:2',
+            'penerbit' => 'required',
+            'tanggal_terbit' => 'required',
+
+        ]);
 
          Buku::create($request->except(['_token','submit']));
-         return redirect('/buku');
+         return redirect('/buku')->with('status','buku berhasil ditambah');
     }
 
     public function edit($id){
@@ -30,14 +36,22 @@ class BukuController extends Controller
         return view('buku.edit',compact(['buku']));
     }
     public function update($id,Request $request){
+
+        $request->validate([
+            'nama_buku' => 'required|min:2',
+            'penerbit' => 'required',
+            'tanggal_terbit' => 'required',
+
+        ]);
+
         $buku = Buku::find($id);
         $buku->update($request->except(['_token','submit']));
-        return redirect('/buku');
+        return redirect('/buku')->with('status','buku berhasil diedit');
     }
 
-    public function destroy($id){
+    public function delete($id){
         $buku = Buku::find($id);
         $buku->delete();
-        return redirect('/buku');
+        return redirect('/buku')->with('status','buku berhasil dihapus');
     }
 }

@@ -27,9 +27,10 @@ Route::get('/buku/create',[BukuController::class,'create']);
 Route::post('/buku/store',[BukuController::class,'store']);
 Route::get('/buku/{id}/edit',[BukuController::class,'edit']);
 Route::put('/buku/{id} ',[BukuController::class,'update']);
-Route::delete('/buku/{id} ',[BukuController::class,'destroy']);
+// Route::delete('/buku/{id} ',[BukuController::class,'destroy']);
 Route::post('/postlogin', [LoginController::class,'postlogin'])->name('postlogin');
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
+Route::get('/delete/{id}', [BukuController::class,'delete'])->name('delete');
 
 Route::Group(['middleware' => ['auth']], function () {
     Route::get('/buku',[BukuController::class,'index']);

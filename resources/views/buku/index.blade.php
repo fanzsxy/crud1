@@ -39,11 +39,12 @@
          <div class="btn-group" role="group" aria-label="Basic example">
             
             <a href="/buku/{{$b->id}}/edit" class="btn btn-warning">edit</a>
-            <form action="/buku/{{$b->id}}" method="POST" >
+            <a href="#" class="btn btn-danger" id="delete" data-id="{{$b->id}}">hapus</a>
+            {{-- <form action="/buku/{{$b->id}}" method="POST" >
                 @csrf
                 @method('delete')
-                <input type="submit" class="btn btn-danger"  value="hapus">
-            </form>
+                <input type="submit" class="btn btn-danger" id="delete" value="hapus">
+            </form> --}}
           </div>
         </td>
     </tr>
