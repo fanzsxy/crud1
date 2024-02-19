@@ -35,12 +35,25 @@
     @enderror
   </div>
   <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">kategori</label>
+    <select name="kategori" class="form-select @error('kategori') is-invalid @enderror">
+      <option value="">kategori</option>
+      @foreach ($kategori as $buku)
+      <option value="{{$buku->id_kategori}}">{{$buku->nama_kategori}}</option>
+      @endforeach
+      @error('kategori')
+      <div class="invalid-feedback">{{$message}}</div>
+      @enderror
+    </select>
+  </div>
+  <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Tanggal Terbit</label>
     <input type="date" name="tanggal_terbit" class="form-control  @error('tanggal_terbit') is-invalid @enderror" value="{{old ('tanggal_terbit')}}" id="exampleInputEmail1" aria-describedby="emailHelp">
     @error('tanggal_terbit')
     <div class="invalid-feedback">{{$message}}</div>
     @enderror
   </div>
+  
   
    
     

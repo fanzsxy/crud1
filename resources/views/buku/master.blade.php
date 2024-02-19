@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>laravel Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -32,9 +32,7 @@
 <div class="wrapper">
 
   <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="{{asset('AdminLTE-3.2.0')}}/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div>
+ 
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -211,8 +209,8 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item ">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -249,6 +247,42 @@
               </p>
             </a>
             </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-table"></i>
+                <p>
+                  kategori
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/kategori/index" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>kategori</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/kategori/1" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>non fiksi</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/kategori/2" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>fiksi</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/kategori/3" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>komik</p>
+                  </a>
+                </li>
+               
+              </ul>
+              </li>
             <li class="nav-item">
           <a href="{{route('logout')}}" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>

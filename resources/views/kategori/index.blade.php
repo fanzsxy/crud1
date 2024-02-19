@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">BUKU</h1>
+            <h1 class="m-0">Kategori</h1>
           </div><!-- /.col -->
           <div class="col-sm-5">
             <ol class="breadcrumb float-sm-right">
@@ -19,29 +19,27 @@
 
 
       <div class="container">
-<a href="/buku/create" class="btn btn-primary">tambah</a>
+<a href="/kategori/tambah" class="btn btn-primary">tambah</a>
 <table  class="table table-hover">
     <tr>
         <th>No</th>
-        <th>Nama Buku</th>
-        <th>Penerbit</th>
         <th>Kategori</th>
-        <th>Tanggal Terbit</th>
+        <th>daftar buku</th>
         <th>Aksi</th>
     </tr>
-@foreach($buku as $b)
+@foreach($kategori as $k)
 
     <tr>
-        <td>{{$b->id}}</td>
-        <td>{{$b->nama_buku}}</td>
-        <td>{{$b->penerbit}}</td>
-        <td>{{$b->nama_kategori}}</td>
-        <td>{{$b->tanggal_terbit}}</td>
+        <td>{{$k->id_kategori}}</td>
+        <td>{{$k->nama_kategori}}</td>
+        <td>
+          <a href="/kategori/{{$k->id_kategori}}" class="">lihat</a>
+        </td>
         <td >
          <div class="btn-group" role="group" aria-label="Basic example">
             
-            <a href="/buku/{{$b->id}}/edit" class="btn btn-warning">edit</a>
-            <a href="#" class="btn btn-danger" id="delete" data-id="{{$b->id}}">hapus</a>
+            <a href="/kategori/{{$k->id_kategori}}/edit" class="btn btn-warning">edit</a>
+    
             {{-- <form action="/buku/{{$b->id}}" method="POST" >
                 @csrf
                 @method('delete')
@@ -49,13 +47,16 @@
             </form> --}}
           </div>
         </td>
+        
     </tr>
+    
 @endforeach
 </table>
+
 </div>
 
 @endsection
-    </div>
-    </div>
+
+
 
     

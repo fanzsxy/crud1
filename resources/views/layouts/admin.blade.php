@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="{{asset('AdminLTE-3.2.0')}}/https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -27,6 +28,8 @@
   <link rel="stylesheet" href="{{asset('AdminLTE-3.2.0')}}/plugins/summernote/summernote-bs4.min.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+
+
   
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -203,14 +206,14 @@
           </div>
         </div>
       </div>
-
+    
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item menu-open">
-            <a href="/" class="nav-link active">
+               <li class="nav-item ">
+            <a href="/" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -229,13 +232,21 @@
             </a>
             </li>
             <li class="nav-item">
-            <a href="{{route('logout')}}" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
-              <p>
-                Logout
-              </p>
-            </a>
-            </li>
+              <a href="/kategori/index" class="nav-link">
+                <i class="nav-icon fas fa-table"></i>
+                <p>
+                  kategori
+                </p>
+              </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('logout')}}" class="nav-link">
+                  <i class="nav-icon far fa-envelope"></i>
+                  <p>
+                    Logout
+                  </p>
+                </a>
+                </li>
             <!-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="./index.html" class="nav-link active">
@@ -911,6 +922,41 @@
 <script src="{{asset('AdminLTE-3.2.0')}}/dist/js/adminlte.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    $(document).on('click','#delete1', function(e){
+      e.preventDefault();
+      var kategoriid_kategori = $(this).attr("data-id");
+
+      Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location = "/delete1/"+kategoriid_kategori+""
+    Swal.fire({
+      
+      title: "Deleted!",
+      text: "Your file has been deleted.",
+      icon: "success"
+    });
+  }
+});
+
+    });
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</div>
+</div>
 <script type="text/javascript">
   $(function(){
     $(document).on('click','#delete', function(e){
@@ -940,7 +986,6 @@
     });
   });
 </script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script>
   @if(Session::has('status'))
